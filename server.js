@@ -1,50 +1,47 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db.');
-require('dotenv').config();
-const app = express();
-const productRoutes = require('./routes/productRoutes');
-const cartRoutes = require('./routes/cartroute');
-const categoryRoutes = require('./routes/categoryroute');
-const { globalErrorHandler, AppError } = require('./middleware/errorhandler');
-const orderRoutes = require("./routes/orderroute");
-const errorHandler = require('./middleware/errorHandler');
-const mongoSanitize = require('express-mongo-sanitize');
+const connectDB = require('./config/db.js');
+const productroutes = require('./routes/productRoutes.js');
+const categorytroutes = require('./routes/categoryroute.js');
+const cartroutes = require('./routes/cartroute.js');
+const orderroutes = require('./routes/orderroute.js');
+const { globalErrorHandler, AppError } = require('./middleware/errorhandler.js');
 
-
-app.use('/api/cart', cartRoutes);
-
-// Load environment config
 dotenv.config();
-
-// Connect to MongoDB Database
-connectDB();
-
 const app = express();
 
-// Body Parser Middleware
-app.use(express.json());
-app.use(mongoSanitize());
-app.use(mongoSanitize());
+app.use((req, res, next) => {
+  Object.defineProperty(req, 'query', {
+    value: { ...req.query },
+    writable: true,
+    configurable: true,
+    enumerable: true,
+  });
+  next();
+});
 
-// Mount Routing Files
-app.use('/api/categories', categoryroute);
-app.use('/api/products', productRoutes);
-app.use('/api/cart', cartroute);
-app.use('/api/orders', orderroute);
+app.use(express.json()); 
 
+app.use('/api/category', categorytroutes);
+app.use('/api/products', productroutes);
+app.use('/api/order', orderroutes);
+app.use('/api/cart', cartroutes);
 
 app.use((req, res, next) => {
   res.status(404).json({ status: 'fail', message: 'Not Found' });
 });
 
-// Error Handler
-app.use(errorHandler);
+app.use(globalErrorHandler);
 
-// Connect to DB & start server
 const startServer = async () => {
-  await connectDB();
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  try {
+    await connectDB();
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (error) {
+    console.error(`Database connection failed: ${error.message}`);
+    process.exit(1);
+  }
 };
 
+startServer();
