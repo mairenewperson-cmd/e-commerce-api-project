@@ -1,5 +1,4 @@
 const express = require('express');
-const productController = require('../controllers/productController');
 const router = express.Router();
 const {
   getAllProducts,
@@ -7,9 +6,17 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
-} = require('../controllers/productController');
+} = require('../controllers/productController'); 
 
-router.route('/').get(getAllProducts).post(createProduct);
-router.route('/:id').get(getProductById).patch(updateProduct).delete(deleteProduct);
+// Handles collection-wide requests and query filtering
+router.route('/')
+  .get(getAllProducts)
+  .post(createProduct);
+
+// Handles single product alterations
+router.route('/:id')
+  .get(getProductById)
+  .patch(updateProduct)
+  .delete(deleteProduct);
 
 module.exports = router;
