@@ -8,12 +8,10 @@ const {
   deleteProduct,
 } = require('../controllers/productController'); 
 
-// Handles collection-wide requests and query filtering
 router.route('/')
   .get(getAllProducts)
   .post(createProduct);
 
-// Handles single product alterations
 router.route('/:id')
   .get(getProductById)
   .patch(updateProduct)
