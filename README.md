@@ -34,8 +34,12 @@ This is the direct link (the connection string) that Mongoose uses to talk to yo
 and tells it to save everything inside a database called testdb.
 
 INSTALLATION STEPS:
-1-npm create packages (npm init -y)
-2-install the required packages (npm install express mongoose dotenv express-mongo-sanitize express-validator)
+1-git clone 
+2- npm init 
+3- npm install 
+4-npm run dev 
+5-npm run seed 
+6-install the required packages (npm install express mongoose dotenv express-mongo-sanitize express-validator) 
 
  API Endpoints
 
