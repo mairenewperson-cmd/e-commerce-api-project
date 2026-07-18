@@ -2,13 +2,11 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
-    // Must be unique per the rubric requirements
     orderNumber: {
       type: String,
       required: true,
       unique: true,
     },
-    // Items snapshot at checkout time (product reference, snapshot name, price, quantity)
     items: [
       {
         product: {
@@ -30,21 +28,20 @@ const orderSchema = new mongoose.Schema(
         },
       },
     ],
-    // Must be calculated server-side
     totalPrice: {
       type: Number,
       required: true,
     },
-    // Status enum validation
     status: {
       type: String,
       required: true,
-      enum: ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"],
-      default: "Pending",
+      enum: ["pending", "confirmed", "shipped", "delivered", "cancelled"],
+      default: "pending",
     },
     shippingAddress: {
-      type: String,
-      required: true,
+      street: { type: String, required: true },
+      city: { type: String, required: true },
+      country: { type: String, required: true },
     },
   },
   {
