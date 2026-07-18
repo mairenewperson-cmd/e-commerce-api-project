@@ -37,11 +37,11 @@ INSTALLATION STEPS:
 1-npm create packages (npm init -y)
 2-install the required packages (npm install express mongoose dotenv express-mongo-sanitize express-validator)
 
- API Endpoints
+ API Endpoints
 
 The API is structured around four main resources: Products, Categories, Cart, and Orders.
 
- Products
+Products
 Manage inventory and product details.
 
 | GET | /api/product | Fetch all products |
@@ -49,7 +49,7 @@ Manage inventory and product details.
 | POST | /api/product/:categoryid | Create a new product under a specific category |
 | PATCH| /api/product/:productid | Update an existing product's details |
 | DELETE | /api/product/:productid | Remove a product from inventory |
----
+
 Category
 Organize products into groups.
 |GET | /api/category| Fetch all categories |
@@ -57,7 +57,7 @@ Organize products into groups.
 | POST | /api/category | Create a new category |
 | PATCH |/api/category/:id | Update a category's name/details |
 | DELETE| /api/category/:id | Remove a category |
----
+
 Cart
 Manage user shopping carts.
 | GET| /api/cart | View the current user's cart items |
@@ -65,8 +65,8 @@ Manage user shopping carts.
 | PATCH | /api/cart/items/:productid | Update the quantity of a specific item in the cart |
 | DELETE | /api/cart/items/:productid | Remove a specific item from the cart |
 | DELETE | /api/cart | Clear the entire cart |
----
- Order
+
+ Order
 Handle checkout and order tracking.
 | POST | /api/order | Place a new order (Checkout) |
 | GET| /api/order | Fetch order history |
