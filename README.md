@@ -2,7 +2,7 @@
 
 this is my backend API project for an e-commerce website. It's built to handle things like looking at products, putting items in a shopping cart, and making orders.
 
-backend:node.js and express.js
+backend:node.js and express.js 
 database:mongodb and mongoose
 
 
@@ -16,43 +16,65 @@ order api: processes the checkout when someone to buy something
 PREREQUISITES:
 node.js:v24.15.0
 mongodb:run it locally on ur machine
+express 5
 i use npm to install the packages 
 
+
 ENVIRONMENT VARIABLES:
-NODE_ENV=development
+1)NODE_ENV=development
 This tells Node what mode the app is running in.Setting it to 'development' means the app knows we're still 
 building and testing things locally, so it will give us more detailed error messages if something breaks.
 
-PORT=5000
+2)PORT=5000
 This is the "channel" or port number where our local backend server lives. When you run the server, it will listen on this port, meaning you'll access the API in 
 your browser or Postman using http://localhost:5000.
 
-MONGO_URI=mongodb://localhost:27017/testdb
+3)MONGO_URI=mongodb://localhost:27017/testdb
 This is the direct link (the connection string) that Mongoose uses to talk to your database. It points to your local MongoDB server (localhost:27017) 
 and tells it to save everything inside a database called testdb.
 
+INSTALLATION STEPS:
+1-npm create packages (npm init -y)
+2-install the required packages (npm install express mongoose dotenv express-mongo-sanitize express-validator)
+
+## API Endpoints
+
+The API is structured around four main resources: Products, Categories, Cart, and Orders.
+
+ Products
+Manage inventory and product details.
+
+| **GET** | `/api/product` | Fetch all products |
+| **GET** | `/api/product/:id` | Fetch a single product by ID |
+| **POST** | `/api/product/:categoryid` | Create a new product under a specific category |
+| **PATCH** | `/api/product/:productid` | Update an existing product's details |
+| **DELETE** | `/api/product/:productid` | Remove a product from inventory |
+---
+Category
+Organize products into groups.
+| **GET** | `/api/category` | Fetch all categories |
+| **GET** | `/api/category/:id` | Fetch a single category by ID |
+| **POST** | `/api/category` | Create a new category |
+| **PATCH** | `/api/category/:id` | Update a category's name/details |
+| **DELETE** | `/api/category/:id` | Remove a category |
+---
+Cart
+Manage user shopping carts.
+| **GET** | `/api/cart` | View the current user's cart items |
+| **POST** | `/api/cart/items` | Add an item to the cart |
+| **PATCH** | `/api/cart/items/:productid` | Update the quantity of a specific item in the cart |
+| **DELETE** | `/api/cart/items/:productid` | Remove a specific item from the cart |
+| **DELETE** | `/api/cart` | Clear the entire cart |
+---
+ Order
+Handle checkout and order tracking.
+| **POST** | `/api/order` | Place a new order (Checkout) |
+| **GET** | `/api/order` | Fetch order history |
+| **GET** | `/api/order/:id` | Fetch specific order details by ID |
+| **PATCH** | `/api/order/:id/status` | Update order fulfillment status (e.g., Pending, Shipped) |
 
 
-API ENDPOINTS:
-categories
-GET /api/category - Gets all the categories.
-POST /api/category - Adds a new category.
 
-products
-GET /api/products - Gets a list of all products.
-GET /api/products/:id - Gets the details for just one product.
-POST /api/products - Creates a new product.
-
-cart
-GET /api/cart - Sees what is currently inside the user's cart.
-POST /api/cart - Adds an item to the cart or changes the quantity.
-DELETE /api/cart/:itemId - Deletes an item out of the cart.
-
-orders
-POST /api/orders - Places a new order (checkout).
-GET /api/orders - Shows the user's order history.
-
- 
 PROJECT STRUCTURE:
 config/ & db: These folders handle our background setup. They store the settings and 
 connection logic needed to link our application straight to MongoDB.
