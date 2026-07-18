@@ -14,15 +14,28 @@ cart api:adding stuff in te cart and managing the user items
 order api: processes the checkout when someone to buy something
 
 PREREQUISITES:
-node.js:the newest update
+node.js:v24.15.0
 mongodb:run it locally on ur machine
-npm or yarn: to install the packages (but i used npm)
+i use npm to install the packages 
+
+ENVIRONMENT VARIABLES:
+NODE_ENV=development
+This tells Node what mode the app is running in.Setting it to 'development' means the app knows we're still 
+building and testing things locally, so it will give us more detailed error messages if something breaks.
+
+PORT=5000
+This is the "channel" or port number where our local backend server lives. When you run the server, it will listen on this port, meaning you'll access the API in 
+your browser or Postman using http://localhost:5000.
+
+MONGO_URI=mongodb://localhost:27017/testdb
+This is the direct link (the connection string) that Mongoose uses to talk to your database. It points to your local MongoDB server (localhost:27017) 
+and tells it to save everything inside a database called testdb.
 
 
-APO ENDPOINTS:
+
+API ENDPOINTS:
 categories
 GET /api/category - Gets all the categories.
-
 POST /api/category - Adds a new category.
 
 products
@@ -38,7 +51,20 @@ DELETE /api/cart/:itemId - Deletes an item out of the cart.
 orders
 POST /api/orders - Places a new order (checkout).
 GET /api/orders - Shows the user's order history.
+
  
+PROJECT STRUCTURE:
+config/ & db: These folders handle our background setup. They store the settings and 
+connection logic needed to link our application straight to MongoDB.
+controllers: This is the "brain" folder. It holds all the actual logic and code 
+functions that run when someone triggers our API (like fetching data or adding an item to a cart).
+models: These are our database blueprints. They tell MongoDB exactly how our data 
+collections (like products or users) must be structured.
+routes: This folder acts like a traffic cop. It maps out our API endpoints and directs incoming
+network requests to the correct controller functions.
+middleware/ & utils: These are helper toolboxes. They contain custom tools and error handlers
+
+
 
 CLONE GITHUB LINK:
 https://github.com/mairenewperson-cmd/e-commerce-api-project
