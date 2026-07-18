@@ -75,6 +75,7 @@ Handle checkout and order tracking.
 
 
 
+
 PROJECT STRUCTURE:
 config/ & db: These folders handle our background setup. They store the settings and 
 connection logic needed to link our application straight to MongoDB.
