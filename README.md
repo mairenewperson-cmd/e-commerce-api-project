@@ -47,6 +47,12 @@ The API is structured around four main resources: Products, Categories, Cart, an
 
 Products
 Manage inventory and product details.
+Product Filtering in /api/products:
+
+Category: Use ?category=ID to grab products from a specific category.
+Price Range: Use ?minPrice=100&maxPrice=500 to filter by budget. (You can use just one or both together).
+Stock Status: Use ?inStock=true if you only want items that are actually available.
+Search Keyword: Use ?search=keyword to look for a specific term. Under the hood, this uses $regex to search through both the product's name and description.
 
 | GET | /api/product | Fetch all products |
 | GET| /api/product/:id | Fetch a single product by ID |
