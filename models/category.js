@@ -1,21 +1,30 @@
 const mongoose = require('mongoose');
 
-const categoryartSchema = new mongoose.Schema({
-  categoryname: {
+const categorySchema = new mongoose.Schema({
+  name: {
     type: String,
-    required: [true, 'a category name is required.'],
+    required: [true, 'A category name is required.'],
+    unique: true,
     trim: true
   },
-  desctription: {
+  description: {
     type: String,
-    required: [true, 'a category description is required.']
+    required: false, 
+    trim: true
   },
-  def: {
-    type: Boolean,
-    default: true
+  slug: {
+    type: String,
+    unique: true
   }
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('category', categorySchema);
+
+categorySchema.pre('save', function() {
+  if (this.isModified('name')) {
+    this.slug = this.name.toLowerCase().replace(/\s+/g, '-');
+  }
+});
+
+module.exports = mongoose.model('Category', categorySchema);
