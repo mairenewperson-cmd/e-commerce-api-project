@@ -1,0 +1,462 @@
+{
+  "info": {
+    "_postman_id": "495f0945-7abf-4ddf-b400-6c7c0c4cba88",
+    "name": "e-commerce-api",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55897699",
+    "_collection_link": "https://go.postman.co/collection/55897699-495f0945-7abf-4ddf-b400-6c7c0c4cba88?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "get/apiproduct",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Wireless Gaming Mouse\",\r\n    \"description\": \"High precision rechargeable mouse\",\r\n    \"price\": 120,\r\n    \"category\": \"6a527164da98bfb6382aa6a1\",\r\n    \"inStock\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiproduct/id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Wireless Mouse\",\r\n  \"price\": 29.99,\r\n  \"description\": \"Ergonomic 2.4GHz wireless mouse.\",\r\n  \"category\": \"6a5b9a8e87177a529800d2e2\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/6a5b9a8e87177a529800d2e5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "6a5b9a8e87177a529800d2e5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "post/apiproduct/",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Wireless Mouse\",\r\n  \"price\": 29.99,\r\n  \"description\": \"Ergonomic 2.4GHz wireless mouse.\",\r\n  \"category\": \"6a5b9a8e87177a529800d2e2\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "patch/apiproduct/productid",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"price\": 24.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/6a5b9a8e87177a529800d2e5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "6a5b9a8e87177a529800d2e5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete/apiproduct/productid",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"qaunitity\":1\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/6a5b9a8e87177a529800d2e5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "6a5b9a8e87177a529800d2e5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "item": [
+        {
+          "name": "get/apicategory",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"shippingAddress\": \"123 Main Street\"\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get/apicategory/id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "post/apicategory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "patch/apicategory/ID",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delet/apicategory/ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/category/6a5de2b53adb09d3829a5cb4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "category",
+                "6a5de2b53adb09d3829a5cb4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "cart",
+      "item": [
+        {
+          "name": "get/apicart",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "post/apicart/items",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": \"6a5274fcda98bfb6382aa6a3\",\r\n    \"quantity\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/items",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "patch/apicart/items/productId",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"quantity\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/items/6a5b5d54f12b1f35c3df18fe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "items",
+                "6a5b5d54f12b1f35c3df18fe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete/apicart/items/productId",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/items/6a527263da98bfb6382aa6a2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "items",
+                "6a527263da98bfb6382aa6a2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete/apitcart",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "post/apiorder",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"shippingAddress\": \"123 Main Street\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}api/order",
+              "host": [
+                "{{baseUrl}}api"
+              ],
+              "path": [
+                "order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiorder",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/order",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiorder/ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/order",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "patch/apiorder/id/status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/order",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "order"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
