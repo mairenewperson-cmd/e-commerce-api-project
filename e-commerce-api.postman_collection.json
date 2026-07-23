@@ -149,6 +149,69 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "get/apitproduct/categoryid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Wireless Gaming Mouse\",\r\n    \"description\": \"High precision rechargeable mouse\",\r\n    \"price\": 120,\r\n    \"category\": \"6a527164da98bfb6382aa6a1\",\r\n    \"inStock\": true\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products?category=6a5b9a8e87177a529800d2e2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "6a5b9a8e87177a529800d2e2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiproduct/min&maxprice",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiproduct/stock",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiproduct/search",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "get/apiproduct/allfilters",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
         }
       ]
     },
